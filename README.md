@@ -1,3 +1,3 @@
-+# Notes
+# Notes
 
-+Simple application of notes with react.
+Simple application of notes with react.
