@@ -4,9 +4,14 @@ import './css/Header.css';
 class Header extends Component {
   render() {
     return (
-      <div className="Header">
-          <h1 className="App-title">Welcome to React</h1>
-      </div>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a>
+          </div>
+          <p>Notes</p>
+        </div>
+      </nav>
     );
   }
 }
