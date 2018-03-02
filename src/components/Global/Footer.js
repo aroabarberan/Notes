@@ -6,7 +6,7 @@ import './css/Footer.css';
 class Footer extends Component {
   render() {
     return (
-      <div className="Footer">
+      <div className="footer">
         <p>Footer = copyrigth</p>   
       </div>
     );
