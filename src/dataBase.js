@@ -9,17 +9,11 @@ var connection = mysql.createConnection({
     database: 'note'
 });
 
-connection.connect();
-
-app.get('/', function(rep, resp) {
-    connection.query("SELECT * FROM note", function(error, rows, fields) {
-        if(!!error) {
-            console.log('Error in the query');
-        } else {
-            console.log('Successful query\n');
-            console.log(rows);
-        }
+connection.connect(function (err) {
+    if (err) console.error('Error:- ' + err.stack);
+    connection.query("SELECT * FROM notes", function (err, result) {
+        if (err) console.log(err);
+        console.log("Data to table note");
+        console.log(result);
     });
 });
-
-// app.listen(3001);
