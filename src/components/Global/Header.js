@@ -4,10 +4,10 @@ import './css/Header.css';
 class Header extends Component {
   render() {
     return (
-      <nav class="navbar navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#"></a>
+      <nav className="navbar navbar-fixed-top">
+        <div className="container">
+          <div className="navbar-header">
+            {/* <a className="navbar-brand" href="#"></a> */}
           </div>
           <h3>Notes</h3>
         </div>

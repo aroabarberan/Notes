@@ -6,7 +6,7 @@ import './css/Content.css';
 class Content extends Component {
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <div className="Content">
           <h1>I am the content</h1>
           <p>Lorem Imsupt</p>
