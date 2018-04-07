@@ -10,6 +10,7 @@ class Content extends Component {
         <div className="Content">
           <h1>I am the content</h1>
           <p>Lorem Imsupt</p>
+          <script src="../src/dataBase.js"></script>
         </div>
       </div>
     );
