@@ -6,8 +6,10 @@ const initialState = {
     }
   ],
   form: {
-    title: '',
-    content: ''
+    create: {
+      title: '',
+      content: ''
+    }
   }
 }
 
@@ -27,19 +29,25 @@ export const notes = (state = initialState, action) => {
     case 'UPDATE_INFO_FORM':
       return {
         ...state,
-        form: [...state.form, action.payload]
+        form: {
+          ...state.form,
+          create: {
+            ...state.form.create,
+            ...action.payload,
+          }
+        },
       }
-
     case 'CLEAR_FORM':
       return {
         ...state,
         form: {
           ...state.form,
-          title: '',
-          content: '',
+          create: {
+            title: '',
+            content: '',
+          },
         },
       }
-
     default:
       return state
   }

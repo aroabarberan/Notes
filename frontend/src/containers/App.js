@@ -51,10 +51,10 @@ class App extends React.Component {
     //   },
     //   body: JSON.stringify({ title, content }),
     // })
-    this.props.addNote({
-      title: this.props.title,
-      content: this.props.content,
-    })
+    // this.props.addNote({
+    //   title: this.props.title,
+    //   content: this.props.content,
+    // })
     // this.props.updateInfoForm({title: '', content: ''})
   }
 
@@ -71,7 +71,7 @@ class App extends React.Component {
 
   render() {
     const { classes } = this.props
-    const { notes } = this.props.notes
+    // const { notes } = this.props.notes
     return (
       <div>
         <h1>Notas</h1>
@@ -88,7 +88,7 @@ class App extends React.Component {
             <button type="submit">Submit</button>
           </form>
         </Paper>
-        {notes.map((note, index) => (
+        {/* {notes.map((note, index) => (
           <Paper key={index} className={classes.root} elevation={1}>
             <p>Titulo: {note.title}</p>
             <p>Content: {note.content}</p>
@@ -96,7 +96,7 @@ class App extends React.Component {
               <DeleteIcon onClick={this.deleteNote(note.id)} className={classes.icon} />
             </Grid>
           </Paper>
-        ))}
+        ))} */}
       </div>
     )
   }
@@ -117,14 +117,8 @@ const styles = theme => ({
 
 
 const mapStateToProps = state => ({
-  // notes: state.notes,
-  // form: state.notes.form
-
-  // name: state.hero.form.create.name,
-  // power: state.hero.form.create.power,
-
-  title: state.notes.form.title,
-  content: state.notes.form.content,
+  title: state.notes.form.create.title,
+  content: state.notes.form.create.content,
 })
 
 const mapDispatchToProps = dispatch => ({
