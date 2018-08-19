@@ -20,6 +20,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    console.log(this.props.notes)
     fetch('http://localhost:8000/api/notes')
       .then(res => res.json())
       .then(notes => notes.map(note => this.props.addNote(note)))
@@ -37,24 +38,19 @@ class App extends React.Component {
 
   submit(evt) {
     evt.preventDefault();
+    const { title, content } = this.props
     console.log('titulo' + this.props.title)
     console.log('content' + this.props.content)
-    // const { form } = this.props.notes
-    // let { title } = form[0]
-    // let { content } = form[1]
 
-    // fetch('http://127.0.0.1:8000/api/notes', {
-    //   method: "POST",
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ title, content }),
-    // })
-    // this.props.addNote({
-    //   title: this.props.title,
-    //   content: this.props.content,
-    // })
+    fetch('http://127.0.0.1:8000/api/notes', {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({ title, content }),
+    })
+    this.props.addNote({ title, content })
     // this.props.updateInfoForm({title: '', content: ''})
   }
 
@@ -71,7 +67,7 @@ class App extends React.Component {
 
   render() {
     const { classes } = this.props
-    // const { notes } = this.props.notes
+    const { notes } = this.props.notes
     return (
       <div>
         <h1>Notas</h1>
@@ -88,7 +84,7 @@ class App extends React.Component {
             <button type="submit">Submit</button>
           </form>
         </Paper>
-        {/* {notes.map((note, index) => (
+        {notes.map((note, index) => (
           <Paper key={index} className={classes.root} elevation={1}>
             <p>Titulo: {note.title}</p>
             <p>Content: {note.content}</p>
@@ -96,7 +92,7 @@ class App extends React.Component {
               <DeleteIcon onClick={this.deleteNote(note.id)} className={classes.icon} />
             </Grid>
           </Paper>
-        ))} */}
+        ))}
       </div>
     )
   }
@@ -117,6 +113,7 @@ const styles = theme => ({
 
 
 const mapStateToProps = state => ({
+  notes: state.notes,
   title: state.notes.form.create.title,
   content: state.notes.form.create.content,
 })
